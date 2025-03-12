@@ -1,35 +1,28 @@
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance { get; private set; }
-
-    public AudioSource audioSource; // Fuente de audio principal
-    public Slider sliderSonido; // Referencia al Slider de volumen
+    public static AudioManager instance; // Para acceso global
+    public AudioMixer audioMixer; // Arrastra el AudioMixer aquí en el Inspector
 
     private void Awake()
     {
-        if (Instance == null)
+        if (instance == null)
         {
-            Instance = this;
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
-    void Start()
+    public void SetScreamVolume(float volume)
     {
-        // Cargar el volumen guardado (si hay uno) y actualizar el slider
-        float volumenGuardado = PlayerPrefs.GetFloat("Volumen", 1f);
-        audioSource.volume = volumenGuardado;
-        sliderSonido.value = volumenGuardado;
-
-        // Agregar un listener al slider para cambiar el volumen en tiempo real
-        sliderSonido.onValueChanged.AddListener(CambiarVolumen);
-    }
-
-    public void CambiarVolumen(float nuevoVolumen)
-    {
-        audioSource.volume = nuevoVolumen; // Ajusta el volumen del AudioSource
-        PlayerPrefs.SetFloat("Volumen", nuevoVolumen); // Guarda el volumen
+        audioMixer.SetFloat("ScreamVolume", Mathf.Log10(volume) * 20);
+        PlayerPrefs.SetFloat("ScreamVolume", volume);
+        PlayerPrefs.Save();
     }
 }
