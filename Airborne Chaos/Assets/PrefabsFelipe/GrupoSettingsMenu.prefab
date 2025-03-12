@@ -332,7 +332,6 @@ GameObject:
   - component: {fileID: 3016611172069528226}
   - component: {fileID: 287255279866050641}
   - component: {fileID: 8423889774471368674}
-  - component: {fileID: 2718840715271680047}
   m_Layer: 5
   m_Name: BtnBack
   m_TagString: Untagged
@@ -466,22 +465,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!114 &2718840715271680047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2657704180957651352}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f3bb4d91330ecb479071f575dfb81aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttonText: {fileID: 7816896985276030668}
-  normalColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  hoverColor: {r: 1, g: 1, b: 1, a: 1}
-  pressedColor: {r: 0.5943396, g: 0.019624433, b: 0.46081996, a: 1}
 --- !u!1 &2761618239815615053
 GameObject:
   m_ObjectHideFlags: 0
