@@ -2033,6 +2033,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Balloon
       objectReference: {fileID: 0}
+    - target: {fileID: 6976239440535333916, guid: 430a0062d349b954ab7c74a3e37de0d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 6976239440535333916, guid: 430a0062d349b954ab7c74a3e37de0d8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.08
+      objectReference: {fileID: 0}
     - target: {fileID: 7601066389120298821, guid: 430a0062d349b954ab7c74a3e37de0d8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
