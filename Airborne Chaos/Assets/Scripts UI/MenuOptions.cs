@@ -79,11 +79,4 @@ public class MenuOptions : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(NombreMenu, LoadSceneMode.Single);
     }
-    //Salir del juego
-    // Método para cerrar el juego
-    public void SalirDelJuego()
-    {
-        Application.Quit();
-    }
-
 }
