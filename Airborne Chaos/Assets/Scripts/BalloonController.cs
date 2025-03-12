@@ -12,6 +12,14 @@ public class BalloonController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+{
+    if (other.CompareTag("Limit"))
+    {
+        rb.velocity = Vector2.zero;
+    }
+}
+
     void Update()
     {
         float moveX = Input.GetAxisRaw("Horizontal");

@@ -6,33 +6,30 @@ public class HumanSpawner : MonoBehaviour
 {
     public GameObject personPrefab;
     public Transform spawnPoint;
-    private float maxHumans = 10;
-    public float liftForce = 0.1f;
+    public float liftForce = 2f;
     public List<GameObject> activeHumans = new List<GameObject>();
     private Rigidbody2D rb;
+    private Vector3 initialPosition;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        initialPosition = transform.position;
     }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (
-                activeHumans.Count < maxHumans
-            )
-            {
-                SpawnHuman();
-                ApplyLift();
-            }
-
+            SpawnHuman();
+            ApplyLift();
         }
     }
 
     void SpawnHuman()
     {
-        GameObject newHuman = Instantiate(personPrefab, spawnPoint.position, spawnPoint.rotation);
+        Vector3 spawnDownGlobe = new Vector3(spawnPoint.position.x, transform.position.y - 1, 0);
+
+        GameObject newHuman = Instantiate(personPrefab, spawnDownGlobe, spawnPoint.rotation);
         activeHumans.Add(newHuman);
 
         // aplly falling force
@@ -44,6 +41,8 @@ public class HumanSpawner : MonoBehaviour
         {
             humanRb.AddForce(new Vector2(fallForceX, fallForceY), ForceMode2D.Impulse);
         }
+
+        StartCoroutine(ReturnInitialPositionGlobe());
     }
 
     void ApplyLift()
@@ -64,9 +63,15 @@ public class HumanSpawner : MonoBehaviour
         }
     }
 
-    public void RemovePerson(GameObject human)
+    IEnumerator ReturnInitialPositionGlobe()
     {
-        activeHumans.Remove(human);
-        Destroy(human);
+        yield return new WaitForSeconds(1f);
+
+
+        while (Vector3.Distance(transform.position, initialPosition) > 0.1f)
+        {
+            transform.position = Vector3.Lerp(transform.position, initialPosition, Time.deltaTime / 2f);
+            yield return null;
+        }
     }
 }

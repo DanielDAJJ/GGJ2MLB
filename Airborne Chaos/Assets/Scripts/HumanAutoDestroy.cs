@@ -1,18 +1,16 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HumanAutoDestroy : MonoBehaviour
 {
-    public float timeToDisappear = 5f;
-    void Start()
+    public float timeToDisappear = 0.1f;
+
+    void OnCollisionEnter2D(Collision2D other)
     {
-        StartCoroutine(DestroyAfterTime());
+        if (other.gameObject.tag == "Limit")
+        {
+            Destroy(gameObject);
+        }
     }
 
-    IEnumerator DestroyAfterTime()
-    {
-        yield return new WaitForSeconds(timeToDisappear); 
-        Destroy(gameObject); 
-    }
 }
