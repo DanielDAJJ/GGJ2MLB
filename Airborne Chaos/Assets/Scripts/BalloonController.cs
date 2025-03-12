@@ -10,6 +10,7 @@ public class BalloonController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
     }
 
     void OnTriggerEnter2D(Collider2D other)

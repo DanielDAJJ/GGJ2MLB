@@ -32,6 +32,8 @@ public class HumanSpawner : MonoBehaviour
         GameObject newHuman = Instantiate(personPrefab, spawnDownGlobe, spawnPoint.rotation);
         activeHumans.Add(newHuman);
 
+        AudioManager.Instance.PlaySFX();
+
         // aplly falling force
         Rigidbody2D humanRb = newHuman.GetComponent<Rigidbody2D>();
         float fallForceX = -5f;
