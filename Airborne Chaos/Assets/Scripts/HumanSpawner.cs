@@ -10,7 +10,7 @@ public class HumanSpawner : MonoBehaviour
     public List<GameObject> activeHumans = new List<GameObject>();
     private Rigidbody2D rb;
     private Vector3 initialPosition;
-
+    private bool isReturning = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -41,8 +41,11 @@ public class HumanSpawner : MonoBehaviour
         {
             humanRb.AddForce(new Vector2(fallForceX, fallForceY), ForceMode2D.Impulse);
         }
-
-        StartCoroutine(ReturnInitialPositionGlobe());
+        if (!isReturning)
+        {
+            StartCoroutine(ReturnInitialPositionGlobe());
+        }
+        //StartCoroutine(ReturnInitialPositionGlobe());
     }
 
     void ApplyLift()
@@ -65,13 +68,16 @@ public class HumanSpawner : MonoBehaviour
 
     IEnumerator ReturnInitialPositionGlobe()
     {
+        isReturning = true;
         yield return new WaitForSeconds(1f);
-
-
+        
         while (Vector3.Distance(transform.position, initialPosition) > 0.1f)
         {
-            transform.position = Vector3.Lerp(transform.position, initialPosition, Time.deltaTime / 2f);
+            transform.position = Vector3.Lerp(transform.position, initialPosition, Time.deltaTime);
             yield return null;
         }
+        transform.position = initialPosition; 
+        isReturning = false;
+        Debug.Log("Se supone que estoy funcionando");
     }
 }
