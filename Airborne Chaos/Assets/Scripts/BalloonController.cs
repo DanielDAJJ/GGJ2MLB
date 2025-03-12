@@ -29,5 +29,6 @@ public class BalloonController : MonoBehaviour
     void FixedUpdate()
     {
         rb.velocity = new Vector2(movement.x * moveSpeed, rb.velocity.y);
+
     }
 }
