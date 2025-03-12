@@ -871,7 +871,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes:Airborne Chaos/Assets/Scenes/PrincipalGame.unity
+=======
+>>>>>>> Stashed changes
 --- !u!1 &838797134
 GameObject:
   m_ObjectHideFlags: 0
@@ -2564,6 +2567,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream:Airborne Chaos/Assets/Scenes/Animation_Daniel.unity
 --- !u!1001 &2659268560315651183
 PrefabInstance:
@@ -2737,6 +2741,8 @@ PrefabInstance:
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fec7e89fbf61fa2478ef6698a57609ad, type: 3}
 =======
+=======
+>>>>>>> Stashed changes
 --- !u!1 &2076239322
 GameObject:
   m_ObjectHideFlags: 0
@@ -2783,7 +2789,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes:Airborne Chaos/Assets/Scenes/PrincipalGame.unity
+=======
+>>>>>>> Stashed changes
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2792,14 +2801,20 @@ SceneRoots:
   - {fileID: 2659268560315651183}
   - {fileID: 1245714586}
   - {fileID: 1023216360}
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream:Airborne Chaos/Assets/Scenes/Animation_Daniel.unity
   - {fileID: 5551367388561652077}
   - {fileID: 7208794479921723243}
 =======
+=======
+>>>>>>> Stashed changes
   - {fileID: 855800744}
   - {fileID: 802570851}
   - {fileID: 1341013153}
   - {fileID: 1176292501}
   - {fileID: 2076239324}
   - {fileID: 248984418}
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes:Airborne Chaos/Assets/Scenes/PrincipalGame.unity
+=======
+>>>>>>> Stashed changes
