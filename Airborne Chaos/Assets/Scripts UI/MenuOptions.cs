@@ -6,8 +6,8 @@ public class MenuOptions : MonoBehaviour
     public GameObject ObjetoMenuPausa;  // Contenedor del menú de pausa
     public GameObject PauseButton;      // Botón de pausa
     public GameObject GrupoPausa;       // Panel del menú de pausa
-    public GameObject GrupoSalir;       // Panel de salida
     public GameObject GrupoSettings;    // Panel de configuración
+    public GameObject BtnPausa; 
     private bool isPaused = false;      // Controla si el juego está pausado
 
     void Update()
@@ -32,7 +32,7 @@ public class MenuOptions : MonoBehaviour
         Time.timeScale = 0; // PAUSA EL TIEMPO
         ObjetoMenuPausa.SetActive(true);
         GrupoPausa.SetActive(true);
-        GrupoSalir.SetActive(false);
+        BtnPausa.SetActive(true);
         GrupoSettings.SetActive(false);
         PauseButton.SetActive(false); // Ocultar el botón de pausa
     }
@@ -44,7 +44,7 @@ public class MenuOptions : MonoBehaviour
         Time.timeScale = 1; // REANUDA EL TIEMPO
         ObjetoMenuPausa.SetActive(false);
         GrupoPausa.SetActive(false);
-        GrupoSalir.SetActive(false);
+        BtnPausa.SetActive(false);
         GrupoSettings.SetActive(false);
         PauseButton.SetActive(true);
     }
@@ -69,21 +69,22 @@ public class MenuOptions : MonoBehaviour
         CloseAllMenus();
     }
 
-    public void Reload(){
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
     // Método para cargar otra escena y reanudar el tiempo si estaba pausado
     public void IrAlMenu(string NombreMenu)
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(NombreMenu, LoadSceneMode.Single);
     }
-    //Salir del juego
-    // Método para cerrar el juego
-    public void SalirDelJuego()
+    public void Reload()
     {
-        Application.Quit();
+        // Asegurar que todos los menús están cerrados
+        CloseAllMenus();
+
+        // Restaurar el tiempo en caso de que esté pausado
+        Time.timeScale = 1;
+
+        // Recargar la escena actual
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
 }
