@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7997689007108500973}
   - component: {fileID: 6917005653753972199}
-  - component: {fileID: 25211579246089455}
   m_Layer: 0
   m_Name: ControllerOptions
   m_TagString: Untagged
@@ -48,17 +47,5 @@ MonoBehaviour:
   ObjetoMenuPausa: {fileID: 0}
   PauseButton: {fileID: 0}
   GrupoPausa: {fileID: 0}
-  GrupoSalir: {fileID: 0}
   GrupoSettings: {fileID: 0}
---- !u!114 &25211579246089455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9168375393932805856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 500319b095ef9434caefaea5a0a89f4f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  BtnPausa: {fileID: 0}
