@@ -75,6 +75,11 @@ public class MenuOptions : MonoBehaviour
         Time.timeScale = 1;
         SceneManager.LoadScene(NombreMenu, LoadSceneMode.Single);
     }
+    public void IrAScenePrincipal()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("ScenePrincipal", LoadSceneMode.Single);
+    }
     public void Reload()
     {
         // Asegurar que todos los menús están cerrados
