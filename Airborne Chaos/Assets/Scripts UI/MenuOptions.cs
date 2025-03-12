@@ -6,8 +6,8 @@ public class MenuOptions : MonoBehaviour
     public GameObject ObjetoMenuPausa;  // Contenedor del menú de pausa
     public GameObject PauseButton;      // Botón de pausa
     public GameObject GrupoPausa;       // Panel del menú de pausa
-    public GameObject GrupoSalir;       // Panel de salida
     public GameObject GrupoSettings;    // Panel de configuración
+    public GameObject BtnPausa; 
     private bool isPaused = false;      // Controla si el juego está pausado
 
     void Update()
@@ -32,7 +32,7 @@ public class MenuOptions : MonoBehaviour
         Time.timeScale = 0; // PAUSA EL TIEMPO
         ObjetoMenuPausa.SetActive(true);
         GrupoPausa.SetActive(true);
-        GrupoSalir.SetActive(false);
+        BtnPausa.SetActive(true);
         GrupoSettings.SetActive(false);
         PauseButton.SetActive(false); // Ocultar el botón de pausa
     }
@@ -44,7 +44,7 @@ public class MenuOptions : MonoBehaviour
         Time.timeScale = 1; // REANUDA EL TIEMPO
         ObjetoMenuPausa.SetActive(false);
         GrupoPausa.SetActive(false);
-        GrupoSalir.SetActive(false);
+        BtnPausa.SetActive(false);
         GrupoSettings.SetActive(false);
         PauseButton.SetActive(true);
     }
