@@ -19,13 +19,13 @@ public class AudioSettings : MonoBehaviour
 
     public void SetMusicVolume(float volume)
     {
-        mainMixer.SetFloat("Music Volume", Mathf.Log10(volume) * 20);
+        mainMixer.SetFloat("MusicAudio", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("MusicVolume", volume);
     }
 
     public void SetSFXVolume(float volume)
     {
-        mainMixer.SetFloat("SFX Volume", Mathf.Log10(volume) * 20);
+        mainMixer.SetFloat("SfxAudio", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("SFXVolume", volume);
     }
 }
