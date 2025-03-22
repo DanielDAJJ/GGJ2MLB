@@ -8,6 +8,7 @@ TagManager:
   - bird
   - tree
   - cloud
+  - Obstacle
   layers:
   - Default
   - TransparentFX

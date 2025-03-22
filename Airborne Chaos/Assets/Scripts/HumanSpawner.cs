@@ -6,11 +6,13 @@ public class HumanSpawner : MonoBehaviour
 {
     public GameObject personPrefab;
     public Transform spawnPoint;
-    public float liftForce = 2f;
+    public float liftForce = 3f;
     public List<GameObject> activeHumans = new List<GameObject>();
     private Rigidbody2D rb;
     private Vector3 initialPosition;
     private bool isReturning = false;
+    private bool isBeingLifted = false;
+    private bool isPressingSpace = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -18,6 +20,7 @@ public class HumanSpawner : MonoBehaviour
     }
     void Update()
     {
+        isPressingSpace = Input.GetKey(KeyCode.Space);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SpawnHuman();
@@ -55,16 +58,30 @@ public class HumanSpawner : MonoBehaviour
         if (rb != null)
         {
             rb.AddForce(Vector2.up * liftForce, ForceMode2D.Impulse);
-            StartCoroutine(StabilizeHeight());
+            isBeingLifted = true;
+            // Si el jugador sigue presionando Space, no estabilizamos la altura
+            StopCoroutine(StabilizeHeight());
+            StartCoroutine(CheckForStabilization());
+            if (rb != null && !isBeingLifted)
+            {
+                rb.AddForce(Vector2.up * liftForce, ForceMode2D.Impulse);
+                isBeingLifted = true; // Indicamos que el globo está subiendo
+                StartCoroutine(StabilizeHeight());
+            }
         }
     }
-
+    IEnumerator CheckForStabilization()
+    {
+        yield return new WaitUntil(() => !isPressingSpace); // Espera hasta que Space sea soltado
+        StartCoroutine(StabilizeHeight());
+    }
     IEnumerator StabilizeHeight()
     {
         yield return new WaitForSeconds(1f);
+        isBeingLifted = false; // Se puede estabilizar de nuevo
         if (rb != null)
         {
-            rb.velocity = new Vector2(rb.velocity.x, 0); // Estabiliza la velocidad en Y
+            rb.velocity = new Vector2(rb.velocity.x, 0);
         }
     }
 
