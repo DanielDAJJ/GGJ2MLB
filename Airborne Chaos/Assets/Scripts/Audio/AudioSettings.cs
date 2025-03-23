@@ -8,17 +8,34 @@ public class AudioSettings : MonoBehaviour
     public Slider musicSlider;
     public Slider sfxSlider;
 
-    private void Start()
+    private void OnEnable()
     {
-        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.50f);
-        sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", 0.50f);
+        UpdateSlider();
 
-        SetMusicVolume(musicSlider.value);
-        SetSFXVolume(sfxSlider.value);
+        // Update the slider values in real time
+        musicSlider.onValueChanged.AddListener(SetMusicVolume);
+        sfxSlider.onValueChanged.AddListener(SetSFXVolume);
+    }
+
+    private void UpdateSlider()
+    {
+        // Get the current values from the mixer
+        float savedMusicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.10f);
+        float savedSfxVolume = PlayerPrefs.GetFloat("SFXVolume", 0.10f);
+
+        // Put sliders values 
+        musicSlider.value = savedMusicVolume;
+        sfxSlider.value = savedSfxVolume;
+
+        // Apply in AudioMixer
+        SetMusicVolume(savedMusicVolume);
+        SetSFXVolume(savedSfxVolume);
+
     }
 
     public void SetMusicVolume(float volume)
-    {
+    {   
+        volume = Mathf.Clamp(volume, 0.0001f, 1f);
         mainMixer.SetFloat("MusicAudio", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("MusicVolume", volume);
         PlayerPrefs.Save();
@@ -26,8 +43,14 @@ public class AudioSettings : MonoBehaviour
 
     public void SetSFXVolume(float volume)
     {
+        volume = Mathf.Clamp(volume, 0.0001f, 1f);
         mainMixer.SetFloat("SfxAudio", Mathf.Log10(volume) * 20);
         PlayerPrefs.SetFloat("SFXVolume", volume);
         PlayerPrefs.Save();
+    }
+
+    public void OnUpdateValuesSliders()
+    {
+        UpdateSlider();
     }
 }

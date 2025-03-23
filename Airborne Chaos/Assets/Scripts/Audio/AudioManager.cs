@@ -32,9 +32,6 @@ public static AudioManager Instance {get; private set;}
 
     void Start()
     {
-        SetMusicVolume(PlayerPrefs.GetFloat("MusicVolume", 0.50f));
-        SetSFXVolume(PlayerPrefs.GetFloat("SFXVolume", 0.50f));
-
         PlayMusic(musicClip);
     }
 
