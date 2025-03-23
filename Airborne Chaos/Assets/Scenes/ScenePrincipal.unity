@@ -1673,8 +1673,9 @@ GameObject:
   m_Component:
   - component: {fileID: 641156604}
   - component: {fileID: 641156603}
+  - component: {fileID: 641156605}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1707,6 +1708,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &641156605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641156602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d91f13e0fb35ab4783b92ac4b859bab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  grupoDeadPanel: {fileID: 1805907633}
+  isGameOver: 0
 --- !u!1 &684421147
 GameObject:
   m_ObjectHideFlags: 0
@@ -2688,10 +2703,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 525435240}
   - {fileID: 1573540270}
   - {fileID: 1805907634}
   - {fileID: 248329711}
-  - {fileID: 525435240}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

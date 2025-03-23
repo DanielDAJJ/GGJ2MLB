@@ -26,6 +26,7 @@ public class BalloonController : MonoBehaviour
             isDead = true;
             animationManager.SetOnCollision(true);
             Debug.Log("Game Over");
+            GameManager.Instance.GameOver();
         }
     }
     void Update()

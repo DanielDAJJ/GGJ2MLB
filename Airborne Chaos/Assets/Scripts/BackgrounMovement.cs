@@ -20,5 +20,7 @@ public class BackgrounMovement : MonoBehaviour
         {
             transform.position = startPosition;
         }
+        if (GameManager.Instance == null || GameManager.Instance.isGameOver) return;
+        transform.Translate(Vector3.left * speed * Time.deltaTime);
     }
 }

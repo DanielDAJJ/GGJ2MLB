@@ -15,5 +15,7 @@ public class ObstacleController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        if (GameManager.Instance == null || GameManager.Instance.isGameOver) return;
+        transform.Translate(Vector3.left * speed * Time.deltaTime);
     }
 }
