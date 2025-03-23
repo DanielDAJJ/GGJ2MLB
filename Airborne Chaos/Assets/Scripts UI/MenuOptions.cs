@@ -35,6 +35,8 @@ public class MenuOptions : MonoBehaviour
         BtnPausa.SetActive(true);
         GrupoSettings.SetActive(false);
         PauseButton.SetActive(false); // Ocultar el botón de pausa
+
+        FindObjectOfType<AudioSettings>().OnUpdateValuesSliders();
     }
 
     // Método para cerrar todos los menús y reanudar el juego
@@ -74,6 +76,8 @@ public class MenuOptions : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(NombreMenu, LoadSceneMode.Single);
+
+        FindObjectOfType<AudioSettings>().OnUpdateValuesSliders();
     }
     public void IrAScenePrincipal()
     {
