@@ -16,6 +16,7 @@ public class AnimationManager : MonoBehaviour
     public void SetThrowing(bool value)
     {
         animator.SetBool("isThrowing", value);
+        Debug.Log("isThrowing: " + value);
     }
     public void SetOnCollision(bool value)
     {
