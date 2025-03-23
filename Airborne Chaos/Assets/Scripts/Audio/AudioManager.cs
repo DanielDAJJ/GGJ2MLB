@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
+
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager Instance;
+public static AudioManager Instance {get; private set;}
 
     [Header("Audio Mixer")]
     public AudioMixer mainMixer;
@@ -38,6 +37,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayMusic(AudioClip clip)
     {
+
         musicSource.clip = clip;
         musicSource.loop = true;
         musicSource.Play();
@@ -53,11 +53,12 @@ public class AudioManager : MonoBehaviour
 
     public void SetMusicVolume(float volume)
     {
-        mainMixer.SetFloat("Music Volume", Mathf.Log10(volume) * 20);
+        mainMixer.SetFloat("MusicAudio", Mathf.Log10(volume) * 20);
     }
 
     public void SetSFXVolume(float volume)
     {
-        mainMixer.SetFloat("SFX Volume", Mathf.Log10(volume) * 20);
+        mainMixer.SetFloat("SfxAudio", Mathf.Log10(volume) * 20);
     }
+
 }
